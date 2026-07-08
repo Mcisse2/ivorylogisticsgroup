@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ivory Logistics Group — Executive Ground Transportation, Washington D.C.</title>
+<meta name="description" content="Premium chauffeured sedans, SUVs, and corporate ground transportation across Washington D.C., Northern Virginia, and Maryland.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:        #F1ECE1;
+    --paper:        #FBFAF6;
+    --navy:         #14213D;
+    --navy-soft:    #223259;
+    --charcoal:     #2B2B2E;
+    --brass:        #A9853B;
+    --brass-soft:   #C7A758;
+    --stamp-red:    #7A2E2E;
+    --hairline:     rgba(20,33,61,0.14);
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background:var(--ivory);
+    color:var(--charcoal);
+    font-family:'Public Sans', sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; text-decoration:none; }
+  h1,h2,h3,h4{
+    font-family:'Fraunces', serif;
+    color:var(--navy);
+    letter-spacing:-0.01em;
+    font-weight:600;
+  }
+  .mono{
+    font-family:'IBM Plex Mono', monospace;
+    letter-spacing:0.04em;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--brass);
+    font-weight:600;
+  }
+  .wrap{ max-width:1120px; margin:0 auto; padding:0 28px; }
+  section{ padding:96px 0; }
+  @media (max-width:720px){ section{ padding:64px 0; } }
+
+  :focus-visible{ outline:2px solid var(--brass); outline-offset:3px; }
+
+  /* ---------- Perforated ticket divider (signature element) ---------- */
+  .ticket-rule{
+    position:relative;
+    height:1px;
+    background:repeating-linear-gradient(to right, var(--hairline) 0 8px, transparent 8px 16px);
+    margin:0 auto;
+    max-width:1120px;
+  }
+  .ticket-rule::before,
+  .ticket-rule::after{
+    content:"";
+    position:absolute;
+    top:50%; transform:translateY(-50%);
+    width:18px; height:18px;
+    border-radius:50%;
+    background:var(--ivory);
+    border:1px solid var(--hairline);
+  }
+  .ticket-rule::before{ left:-9px; }
+  .ticket-rule::after{ right:-9px; }
+
+  /* ---------- Header / Nav ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(241,236,225,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--hairline);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 28px; max-width:1120px; margin:0 auto;
+  }
+  .brand{
+    font-family:'Fraunces', serif;
+    font-size:1.15rem;
+    font-weight:700;
+    color:var(--navy);
+    display:flex; align-items:baseline; gap:8px;
+  }
+  .brand .mark{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.65rem;
+    color:var(--brass);
+    letter-spacing:0.14em;
+    border:1px solid var(--brass);
+    padding:2px 6px;
+    border-radius:2px;
+  }
+  .nav-links{ display:flex; gap:30px; align-items:center; }
+  .nav-links a{
+    font-size:0.88rem; font-weight:600; color:var(--navy-soft);
+  }
+  .nav-links a:hover{ color:var(--brass); }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'Public Sans', sans-serif;
+    font-weight:700; font-size:0.85rem;
+    padding:12px 22px;
+    border-radius:2px;
+    cursor:pointer;
+    border:1px solid transparent;
+    transition:transform .15s ease, background .15s ease;
+  }
+  .btn:hover{ transform:translateY(-1px); }
+  .btn-primary{ background:var(--navy); color:var(--paper); }
+  .btn-primary:hover{ background:var(--navy-soft); }
+  .btn-ghost{ border-color:var(--navy); color:var(--navy); background:transparent; }
+  .btn-ghost:hover{ background:var(--navy); color:var(--paper); }
+  .nav-cta{ display:none; }
+  @media (min-width:640px){ .nav-cta{ display:inline-flex; } }
+  .nav-links{ display:none; }
+  @media (min-width:900px){ .nav-links{ display:flex; } }
+  .menu-btn{ display:inline-flex; background:none;border:1px solid var(--navy); border-radius:2px; padding:8px 12px; font-family:'IBM Plex Mono',monospace; font-size:0.75rem;}
+  @media (min-width:900px){ .menu-btn{ display:none; } }
+  .nav-actions{ display:flex; align-items:center; gap:10px; }
+  .account-badge{ display:none; align-items:center; gap:10px; font-size:0.85rem; color:var(--navy); font-weight:600; }
+  .account-signout{ background:none; border:1px solid var(--navy); color:var(--navy); border-radius:2px; padding:6px 10px; font-size:0.72rem; cursor:pointer; font-family:'Public Sans',sans-serif; }
+  .account-signout:hover{ background:var(--navy); color:var(--ivory); }
+
+  /* ---------- Auth modal ---------- */
+  .modal-overlay{
+    position:fixed; inset:0; background:rgba(20,33,61,0.55);
+    display:none; align-items:center; justify-content:center;
+    padding:20px; z-index:100;
+  }
+  .modal-overlay.open{ display:flex; }
+  .modal{
+    background:var(--paper); border-radius:6px; max-width:440px; width:100%;
+    max-height:90vh; overflow-y:auto; padding:36px 32px; position:relative;
+    box-shadow:0 30px 60px -20px rgba(20,33,61,0.5);
+  }
+  .modal-close{
+    position:absolute; top:14px; right:14px; background:none; border:none;
+    font-size:1.5rem; color:var(--navy-soft); cursor:pointer; line-height:1;
+    width:34px; height:34px; border-radius:50%;
+  }
+  .modal-close:hover{ background:var(--ivory); }
+  .modal-tabs{ display:flex; gap:4px; margin-bottom:24px; border-bottom:1px solid var(--hairline); }
+  .modal-tab{
+    flex:1; background:none; border:none; padding:10px 0 14px; font-family:'IBM Plex Mono',monospace;
+    font-size:0.75rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--navy-soft);
+    cursor:pointer; border-bottom:2px solid transparent;
+  }
+  .modal-tab.active{ color:var(--navy); border-bottom-color:var(--brass); font-weight:600; }
+  .auth-form h3{ font-size:1.3rem; margin-bottom:6px; }
+  .auth-sub{ color:var(--navy-soft); font-size:0.86rem; margin-bottom:22px; }
+  .auth-form .field{ margin-bottom:14px; }
+  .auth-form .field input, .auth-form .field select{
+    background:var(--ivory); border:1px solid var(--hairline); color:var(--charcoal);
+    width:100%;
+  }
+  .account-type-row{ margin-bottom:18px; }
+  .account-type-row .radio-btn{ border-color:var(--hairline); color:var(--navy); background:var(--ivory); }
+  .account-type-row .radio-btn.active{ background:var(--navy); color:var(--ivory); border-color:var(--navy); }
+  .auth-row{ display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; font-size:0.82rem; }
+  .checkbox-label{ display:flex; align-items:center; gap:8px; color:var(--navy-soft); font-size:0.82rem; }
+  .checkbox-label input{ width:auto; }
+  .auth-link{ color:var(--brass); font-weight:600; }
+  .auth-error{ color:var(--stamp-red); font-size:0.8rem; margin-bottom:10px; min-height:1em; }
+
+  /* ---------- Hero ---------- */
+  .hero{ padding:72px 0 80px; }
+  .hero-grid{
+    display:grid; gap:48px;
+    grid-template-columns:1.1fr 0.9fr;
+    align-items:center;
+  }
+  @media (max-width:860px){ .hero-grid{ grid-template-columns:1fr; } }
+  .hero h1{
+    font-size:clamp(2.3rem, 4.6vw, 3.6rem);
+    line-height:1.05;
+    margin:14px 0 20px;
+  }
+  .hero p.lead{
+    font-size:1.08rem; color:var(--navy-soft); max-width:46ch; margin-bottom:32px;
+  }
+  .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; }
+
+  /* manifest / boarding-ticket card */
+  .manifest{
+    background:var(--paper);
+    border:1px solid var(--hairline);
+    border-radius:4px;
+    box-shadow:0 24px 48px -28px rgba(20,33,61,0.35);
+    overflow:hidden;
+  }
+  .manifest-head{
+    background:var(--navy);
+    color:var(--ivory);
+    padding:18px 22px;
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .manifest-head .mono{ font-size:0.72rem; opacity:0.75; }
+  .manifest-route{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:26px 22px 18px;
+  }
+  .manifest-route .code{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:1.9rem; font-weight:600; color:var(--navy);
+  }
+  .manifest-route .arrow{ color:var(--brass); font-size:1.4rem; padding:0 10px; }
+  .manifest-sub{
+    display:flex; justify-content:space-between;
+    padding:0 22px 22px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    color:var(--navy-soft);
+    letter-spacing:0.05em;
+  }
+  .manifest-perf{
+    height:0; border-top:1px dashed var(--hairline); margin:0 22px;
+    position:relative;
+  }
+  .manifest-perf::before,.manifest-perf::after{
+    content:""; position:absolute; top:-8px; width:16px; height:16px; border-radius:50%;
+    background:var(--ivory); border:1px solid var(--hairline);
+  }
+  .manifest-perf::before{ left:-30px; }
+  .manifest-perf::after{ right:-30px; }
+  .manifest-details{
+    padding:22px; display:grid; grid-template-columns:1fr 1fr; gap:14px;
+  }
+  .manifest-details div span.label{ display:block; font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--brass); font-family:'IBM Plex Mono',monospace; margin-bottom:4px; }
+  .manifest-details div span.value{ font-weight:600; color:var(--navy); font-size:0.92rem; }
+
+  /* ---------- Trust strip ---------- */
+  .trust-strip{
+    padding:36px 0;
+    border-top:1px solid var(--hairline);
+    border-bottom:1px solid var(--hairline);
+  }
+  .trust-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:24px;
+  }
+  @media (max-width:760px){ .trust-grid{ grid-template-columns:repeat(2,1fr); } }
+  .trust-item .mono{ color:var(--brass); font-size:0.7rem; }
+  .trust-item p{ font-weight:600; color:var(--navy); margin-top:4px; font-size:0.95rem; }
+
+  /* ---------- Section heads ---------- */
+  .section-head{ max-width:640px; margin-bottom:48px; }
+  .section-head h2{ font-size:clamp(1.8rem, 3vw, 2.4rem); margin-top:10px; }
+  .section-head p{ color:var(--navy-soft); margin-top:14px; }
+
+  /* ---------- Services ---------- */
+  .cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  @media (max-width:900px){ .cards{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:620px){ .cards{ grid-template-columns:1fr; } }
+  .card{
+    background:var(--paper); border:1px solid var(--hairline); border-radius:4px;
+    padding:26px; display:flex; flex-direction:column; gap:10px;
+  }
+  .card .tag{
+    font-family:'IBM Plex Mono',monospace; font-size:0.68rem; color:var(--brass);
+    letter-spacing:0.08em; text-transform:uppercase;
+  }
+  .card h3{ font-size:1.15rem; }
+  .card p{ color:var(--navy-soft); font-size:0.92rem; }
+  .card .price{
+    margin-top:auto; padding-top:14px; border-top:1px dashed var(--hairline);
+    font-family:'IBM Plex Mono',monospace; font-weight:600; color:var(--navy); font-size:0.85rem;
+  }
+
+  /* ---------- Fleet ---------- */
+  .fleet-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+  @media (max-width:760px){ .fleet-grid{ grid-template-columns:1fr; } }
+  .fleet-card{
+    background:var(--navy); color:var(--ivory);
+    border-radius:4px; padding:28px; position:relative; overflow:hidden;
+  }
+  .fleet-card .cat{ font-family:'IBM Plex Mono',monospace; font-size:0.68rem; color:var(--brass-soft); letter-spacing:0.1em; text-transform:uppercase; }
+  .fleet-card h3{ color:var(--ivory); margin:8px 0 6px; font-size:1.3rem; }
+  .fleet-card ul{ list-style:none; margin-top:14px; font-size:0.86rem; color:rgba(241,236,225,0.8); }
+  .fleet-card li{ padding:4px 0; border-top:1px solid rgba(241,236,225,0.12); display:flex; justify-content:space-between; }
+  .fleet-card li:first-child{ border-top:none; }
+
+  /* ---------- Corporate / Process ---------- */
+  .corp-grid{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start; }
+  @media (max-width:860px){ .corp-grid{ grid-template-columns:1fr; } }
+  .process-step{ display:flex; gap:16px; padding:18px 0; border-top:1px solid var(--hairline); }
+  .process-step:first-of-type{ border-top:none; }
+  .process-num{
+    font-family:'IBM Plex Mono',monospace; color:var(--brass); font-weight:600; font-size:1.1rem; min-width:32px;
+  }
+  .process-step h4{ font-size:1rem; margin-bottom:4px; }
+  .process-step p{ color:var(--navy-soft); font-size:0.9rem; }
+  .corp-perks{ list-style:none; margin-top:20px; }
+  .corp-perks li{
+    padding:12px 0; border-top:1px solid var(--hairline); font-size:0.94rem; color:var(--navy-soft);
+    display:flex; gap:10px;
+  }
+  .corp-perks li:first-child{ border-top:none; }
+  .corp-perks li::before{ content:"—"; color:var(--brass); font-weight:700; }
+
+  /* ---------- Booking / Estimator ---------- */
+  .booking{
+    background:var(--navy);
+    color:var(--ivory);
+    border-radius:6px;
+    padding:44px;
+  }
+  @media (max-width:640px){ .booking{ padding:28px 20px; } }
+  .booking .eyebrow{ color:var(--brass-soft); }
+  .booking h2{ color:var(--ivory); }
+  .booking p.lead{ color:rgba(241,236,225,0.75); max-width:60ch; }
+
+  .form-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:32px;
+  }
+  @media (max-width:760px){ .form-grid{ grid-template-columns:1fr; } }
+  .field{ display:flex; flex-direction:column; gap:8px; }
+  .field.span-2{ grid-column:span 2; }
+  @media (max-width:760px){ .field.span-2{ grid-column:span 1; } }
+  .field label{
+    font-family:'IBM Plex Mono',monospace; font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--brass-soft);
+  }
+  .field input, .field select, .field textarea{
+    background:rgba(241,236,225,0.06);
+    border:1px solid rgba(241,236,225,0.25);
+    border-radius:2px;
+    padding:12px 14px;
+    color:var(--ivory);
+    font-family:'Public Sans', sans-serif;
+    font-size:0.94rem;
+  }
+  .field select{ appearance:none; background-image:linear-gradient(45deg, transparent 50%, var(--brass) 50%), linear-gradient(135deg, var(--brass) 50%, transparent 50%); background-position:calc(100% - 20px) center, calc(100% - 14px) center; background-size:6px 6px, 6px 6px; background-repeat:no-repeat; }
+  .field input::placeholder, .field textarea::placeholder{ color:rgba(241,236,225,0.4); }
+  .field input:focus, .field select:focus, .field textarea:focus{
+    outline:2px solid var(--brass); outline-offset:2px; border-color:var(--brass);
+  }
+  .radio-row{ display:flex; gap:10px; }
+  .radio-btn{
+    flex:1; text-align:center; padding:10px 12px; border-radius:2px;
+    border:1px solid rgba(241,236,225,0.25); cursor:pointer; font-size:0.85rem; font-weight:600;
+    background:rgba(241,236,225,0.06); color:var(--ivory);
+  }
+  .radio-btn.active{ background:var(--brass); border-color:var(--brass); color:var(--navy); }
+
+  .estimate-box{
+    margin-top:28px; padding:22px 24px;
+    background:rgba(241,236,225,0.06);
+    border:1px dashed rgba(241,236,225,0.3);
+    border-radius:4px;
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+  }
+  .estimate-box .label{ font-family:'IBM Plex Mono',monospace; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--brass-soft); }
+  .estimate-box .value{ font-family:'Fraunces', serif; font-size:1.7rem; color:var(--ivory); font-weight:600; }
+  .estimate-box .note{ font-size:0.78rem; color:rgba(241,236,225,0.55); max-width:32ch; }
+
+  .booking .btn-primary{ background:var(--brass); color:var(--navy); margin-top:26px; width:100%; justify-content:center; font-size:0.95rem; padding:16px; }
+  .booking .btn-primary:hover{ background:var(--brass-soft); }
+  .form-note{ font-size:0.78rem; color:rgba(241,236,225,0.5); margin-top:12px; text-align:center; }
+
+  /* ---------- Service area ---------- */
+  .area-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  @media (max-width:760px){ .area-grid{ grid-template-columns:1fr; } }
+  .area-card h3{ font-size:1.05rem; }
+  .area-card .mono{ display:block; margin-top:6px; color:var(--navy-soft); font-size:0.82rem; }
+
+  /* ---------- Footer ---------- */
+  footer{ background:var(--navy); color:rgba(241,236,225,0.7); padding:56px 0 30px; }
+  .footer-grid{ display:grid; grid-template-columns:2fr 1fr 1fr; gap:40px; }
+  @media (max-width:760px){ .footer-grid{ grid-template-columns:1fr; gap:28px; } }
+  footer h4{ color:var(--ivory); font-size:0.82rem; letter-spacing:0.08em; text-transform:uppercase; font-family:'IBM Plex Mono',monospace; margin-bottom:14px; }
+  footer .brand{ color:var(--ivory); }
+  footer p{ font-size:0.88rem; max-width:38ch; margin-top:12px; }
+  footer ul{ list-style:none; }
+  footer li{ font-size:0.88rem; padding:5px 0; }
+  footer li a:hover{ color:var(--brass-soft); }
+  .footer-bottom{
+    margin-top:44px; padding-top:22px; border-top:1px solid rgba(241,236,225,0.14);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-size:0.76rem; color:rgba(241,236,225,0.45);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ transition:none !important; animation:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">IVORY LOGISTICS GROUP <span class="mark">DMV</span></div>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#fleet">Fleet</a>
+      <a href="#corporate">Corporate</a>
+      <a href="#coverage">Coverage</a>
+      <a href="#book">Book</a>
+    </nav>
+    <div class="nav-actions">
+      <div id="account-badge" class="account-badge">
+        <span id="account-badge-name"></span>
+        <button class="account-signout" onclick="signOut()">Sign out</button>
+      </div>
+      <button id="signin-trigger" class="btn btn-ghost nav-cta" onclick="openAuthModal('signin')">Sign In</button>
+      <a href="#book" class="btn btn-primary nav-cta">Request a Ride</a>
+      <a href="#book" class="menu-btn">Book →</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Executive Ground Transportation — Washington, D.C.</span>
+      <h1>Washington runs on schedules.<br>We keep yours.</h1>
+      <p class="lead">Chauffeured sedans, SUVs, and corporate accounts for the executives, counsel, and diplomatic staff who can't afford a late arrival. Discreet. Punctual. Dispatched like it matters — because it does.</p>
+      <div class="hero-actions">
+        <a href="#book" class="btn btn-primary">Request a Ride</a>
+        <a href="#corporate" class="btn btn-ghost">Corporate Accounts</a>
+      </div>
+    </div>
+
+    <div class="manifest" aria-hidden="false">
+      <div class="manifest-head">
+        <span class="mono">MANIFEST NO. IL-04127</span>
+        <span class="mono">CONFIRMED</span>
+      </div>
+      <div class="manifest-route">
+        <span class="code">IAD</span>
+        <span class="arrow">→</span>
+        <span class="code">CAP</span>
+      </div>
+      <div class="manifest-sub">
+        <span>DULLES INTL</span>
+        <span>CAPITOL HILL</span>
+      </div>
+      <div class="manifest-perf"></div>
+      <div class="manifest-details">
+        <div><span class="label">Vehicle</span><span class="value">Cadillac XTS</span></div>
+        <div><span class="label">Chauffeur</span><span class="value">Assigned, en route</span></div>
+        <div><span class="label">Wait time</span><span class="value">30 min included</span></div>
+        <div><span class="label">Billing</span><span class="value">Corporate account</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ticket-rule"></div>
+
+<section class="trust-strip">
+  <div class="wrap trust-grid">
+    <div class="trust-item"><span class="mono">01 — DISCRETION</span><p>No app-hailing, no shared rides, no surprises for high-visibility clients.</p></div>
+    <div class="trust-item"><span class="mono">02 — PUNCTUALITY</span><p>Chauffeurs briefed on D.C. security perimeters, motorcade routes, and event-day traffic.</p></div>
+    <div class="trust-item"><span class="mono">03 — VETTED FLEET</span><p>Background-checked chauffeurs, insured vehicles, real-time dispatch tracking.</p></div>
+    <div class="trust-item"><span class="mono">04 — BILLING</span><p>Centralized invoicing and reporting for corporate and government accounts.</p></div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Service Lines</span>
+      <h2>Built for the ride, not just the route</h2>
+      <p>From a single airport transfer to a standing corporate contract, every service is dispatched through the same operational discipline.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <span class="tag">Point-to-Point</span>
+        <h3>Executive Sedan</h3>
+        <p>Cadillac XTS or Lincoln Continental for 1–3 passengers. Airport transfers, meetings, and private travel.</p>
+        <div class="price mono">From $65 one-way</div>
+      </div>
+      <div class="card">
+        <span class="tag">Point-to-Point</span>
+        <h3>Premium SUV</h3>
+        <p>Chevrolet Suburban or Tahoe for up to 6 passengers. Room for luggage, staff, or a small delegation.</p>
+        <div class="price mono">From $75 one-way</div>
+      </div>
+      <div class="card">
+        <span class="tag">Continuous Use</span>
+        <h3>Hourly As-Directed</h3>
+        <p>A vehicle and chauffeur reserved for multi-stop itineraries or on-call availability. 2-hour minimum.</p>
+        <div class="price mono">$95–$145 / hour</div>
+      </div>
+      <div class="card">
+        <span class="tag">B2B</span>
+        <h3>Corporate Accounts</h3>
+        <p>Centralized billing, custom reporting, and priority dispatch for firms and institutions.</p>
+        <div class="price mono">Negotiated rates</div>
+      </div>
+      <div class="card">
+        <span class="tag">Group Coordination</span>
+        <h3>Events &amp; Weddings</h3>
+        <p>Multi-vehicle coordination for galas, conferences, weddings, and guest shuttles.</p>
+        <div class="price mono">Quoted individually</div>
+      </div>
+      <div class="card">
+        <span class="tag">Coming in Phase 2</span>
+        <h3>Secure Courier &amp; Freight</h3>
+        <p>White-glove, chain-of-custody delivery for documents, evidence, and high-value cargo.</p>
+        <div class="price mono">Pilot program TBD</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ticket-rule"></div>
+
+<section id="fleet">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">The Fleet</span>
+      <h2>Two vehicle classes, kept to one standard</h2>
+      <p>Every vehicle is cleaned, inspected, and dispatched to the same operational protocol regardless of class.</p>
+    </div>
+    <div class="fleet-grid">
+      <div class="fleet-card">
+        <span class="cat">Sedan Class</span>
+        <h3>Cadillac XTS &amp; Lincoln Continental</h3>
+        <ul>
+          <li><span>Passengers</span><span>1–3</span></li>
+          <li><span>Best for</span><span>Airport, single meetings</span></li>
+          <li><span>Hourly rate</span><span>$95–$115</span></li>
+        </ul>
+      </div>
+      <div class="fleet-card">
+        <span class="cat">SUV Class</span>
+        <h3>Chevrolet Suburban &amp; Tahoe</h3>
+        <ul>
+          <li><span>Passengers</span><span>1–6</span></li>
+          <li><span>Best for</span><span>Groups, luggage, delegations</span></li>
+          <li><span>Hourly rate</span><span>$115–$145</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="corporate">
+  <div class="wrap corp-grid">
+    <div>
+      <span class="eyebrow">Corporate Accounts</span>
+      <h2>You manage the calendar. We manage the ride.</h2>
+      <p style="color:var(--navy-soft); margin-top:14px;">Built for office managers, executive assistants, and travel coordinators who need one reliable line item, not another vendor to chase.</p>
+      <ul class="corp-perks">
+        <li>Centralized monthly invoicing, no per-ride reconciliation</li>
+        <li>Dedicated point of contact for every account</li>
+        <li>Priority dispatch during high-traffic and event periods</li>
+        <li>10–15% volume pricing in exchange for account commitments</li>
+      </ul>
+      <a href="#book" class="btn btn-primary" style="margin-top:24px;">Start a Corporate Consultation</a>
+    </div>
+    <div>
+      <span class="eyebrow">How Onboarding Works</span>
+      <div style="margin-top:14px;">
+        <div class="process-step">
+          <span class="process-num mono">01</span>
+          <div><h4>Consultation</h4><p>We learn your pain points — punctuality, billing complexity, or security concerns — and propose a plan.</p></div>
+        </div>
+        <div class="process-step">
+          <span class="process-num mono">02</span>
+          <div><h4>30-Day Pilot</h4><p>Larger accounts start with a reduced-rate trial period to prove reliability before committing.</p></div>
+        </div>
+        <div class="process-step">
+          <span class="process-num mono">03</span>
+          <div><h4>White-Glove Onboarding</h4><p>We set up every rider in the dispatch system and confirm protocols before your first ride.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ticket-rule"></div>
+
+<section id="book">
+  <div class="wrap">
+    <div class="booking">
+      <span class="eyebrow">Request a Ride</span>
+      <h2>Get an instant estimate</h2>
+      <p class="lead">Choose a trip type below for a live fare range. Submitting sends your request directly to dispatch — a confirmed quote and chauffeur assignment follow by phone or email.</p>
+
+      <div class="radio-row" style="margin-top:28px; max-width:360px;">
+        <div class="radio-btn active" id="tab-p2p" onclick="setTripType('p2p')">Point-to-Point</div>
+        <div class="radio-btn" id="tab-hourly" onclick="setTripType('hourly')">Hourly As-Directed</div>
+      </div>
+
+      <form class="form-grid" id="booking-form">
+        <div class="field" id="route-field">
+          <label for="route">Route</label>
+          <select id="route" onchange="updateEstimate()">
+            <option value="dca">DCA — Reagan National ↔ Downtown D.C.</option>
+            <option value="iad">IAD — Dulles Intl ↔ Downtown D.C.</option>
+            <option value="tysons">Downtown D.C. ↔ Tysons Corner, VA</option>
+            <option value="custom">Other / custom route (quoted individually)</option>
+          </select>
+        </div>
+
+        <div class="field" id="hours-field" style="display:none;">
+          <label for="hours">Hours needed (2-hour minimum)</label>
+          <input type="number" id="hours" min="2" value="2" onchange="updateEstimate()">
+        </div>
+
+        <div class="field">
+          <label for="vehicle">Vehicle class</label>
+          <select id="vehicle" onchange="updateEstimate()">
+            <option value="sedan">Sedan — Cadillac XTS / Lincoln Continental (1–3 pax)</option>
+            <option value="suv">SUV — Chevrolet Suburban / Tahoe (1–6 pax)</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="passengers">Passengers</label>
+          <input type="number" id="passengers" min="1" max="6" value="1">
+        </div>
+
+        <div class="field">
+          <label for="date">Pickup date</label>
+          <input type="date" id="date" required>
+        </div>
+
+        <div class="field">
+          <label for="time">Pickup time</label>
+          <input type="time" id="time" required>
+        </div>
+
+        <div class="field">
+          <label for="name">Full name</label>
+          <input type="text" id="name" placeholder="Jane Doe" required>
+        </div>
+
+        <div class="field">
+          <label for="contact">Phone or email</label>
+          <input type="text" id="contact" placeholder="(703) 345-8758" required>
+        </div>
+
+        <div class="field span-2">
+          <label for="notes">Pickup / drop-off details</label>
+          <textarea id="notes" rows="3" placeholder="Addresses, flight number, or special requests"></textarea>
+        </div>
+      </form>
+
+      <div class="estimate-box">
+        <div>
+          <div class="label">Estimated fare</div>
+          <div class="value" id="estimate-value">$65 – $85</div>
+        </div>
+        <div class="note">All fares include wait time and gratuity. Airport pickups include 30 minutes; final quote confirmed by dispatch.</div>
+      </div>
+
+      <button class="btn btn-primary" onclick="submitBooking(event)">Send Request to Dispatch</button>
+      <p class="form-note">This form opens a pre-filled email to dispatch — no account or payment required to request a quote.</p>
+    </div>
+  </div>
+</section>
+
+<section id="coverage">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Service Area</span>
+      <h2>Cleared across the National Capital Region</h2>
+    </div>
+    <div class="area-grid">
+      <div class="area-card">
+        <h3>Washington, D.C.</h3>
+        <span class="mono">Capitol Hill · Downtown · Embassy Row</span>
+      </div>
+      <div class="area-card">
+        <h3>Northern Virginia</h3>
+        <span class="mono">Arlington · Tysons · Fairfax · Alexandria</span>
+      </div>
+      <div class="area-card">
+        <h3>Maryland</h3>
+        <span class="mono">Bethesda · Montgomery County</span>
+      </div>
+      <div class="area-card">
+        <h3>Reagan National (DCA)</h3>
+        <span class="mono">Standard &amp; priority pickup lanes</span>
+      </div>
+      <div class="area-card">
+        <h3>Dulles Intl (IAD)</h3>
+        <span class="mono">Extended 30-min wait included</span>
+      </div>
+      <div class="area-card">
+        <h3>BWI Marshall</h3>
+        <span class="mono">By reservation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <div class="brand">IVORY LOGISTICS GROUP</div>
+      <p>Executive ground transportation for the Washington D.C. metropolitan area. Corporate accounts, diplomatic transport, and event coordination.</p>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#fleet">Fleet</a></li>
+        <li><a href="#corporate">Corporate Accounts</a></li>
+        <li><a href="#coverage">Service Area</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact Dispatch</h4>
+      <ul>
+        <li>bookings@ivorylogisticsgroup.com</li>
+        <li>(703) 345-8758</li>
+        <li>Washington, D.C. metro area</li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 Ivory Logistics Group, LLC. All rights reserved.</span>
+    <span>Licensed &amp; insured chauffeur service — D.C. / VA / MD</span>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="auth-overlay" onclick="closeAuthModalOutside(event)">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+    <button class="modal-close" onclick="closeAuthModal()" aria-label="Close">×</button>
+
+    <div class="modal-tabs">
+      <button type="button" class="modal-tab active" id="tab-signin" onclick="switchAuthTab('signin')">Sign In</button>
+      <button type="button" class="modal-tab" id="tab-signup" onclick="switchAuthTab('signup')">Create Account</button>
+    </div>
+
+    <form id="signin-form" class="auth-form" onsubmit="handleSignIn(event)">
+      <h3 id="auth-title">Welcome back</h3>
+      <p class="auth-sub">Sign in to view your trips, saved details, and corporate account.</p>
+      <div class="field">
+        <label for="signin-email">Email</label>
+        <input type="email" id="signin-email" required placeholder="you@company.com">
+      </div>
+      <div class="field">
+        <label for="signin-password">Password</label>
+        <input type="password" id="signin-password" required placeholder="••••••••">
+      </div>
+      <div class="auth-row">
+        <label class="checkbox-label"><input type="checkbox" id="remember-me"> Remember me</label>
+        <a href="#" class="auth-link" onclick="forgotPassword(event)">Forgot password?</a>
+      </div>
+      <div class="auth-error" id="signin-error"></div>
+      <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Sign In</button>
+    </form>
+
+    <form id="signup-form" class="auth-form" style="display:none;" onsubmit="handleSignUp(event)">
+      <h3>Create your account</h3>
+      <p class="auth-sub">Individual and corporate accounts get faster booking and dedicated billing.</p>
+
+      <div class="radio-row account-type-row">
+        <div class="radio-btn active" id="type-individual" onclick="setAccountType('individual')">Individual</div>
+        <div class="radio-btn" id="type-business" onclick="setAccountType('business')">Business / Corporate</div>
+      </div>
+
+      <div id="individual-fields">
+        <div class="field">
+          <label for="ind-name">Full name</label>
+          <input type="text" id="ind-name" placeholder="Jane Doe">
+        </div>
+      </div>
+
+      <div id="business-fields" style="display:none;">
+        <div class="field">
+          <label for="biz-name">Business name</label>
+          <input type="text" id="biz-name" placeholder="Acme Advisory Group">
+        </div>
+        <div class="field">
+          <label for="biz-contact">Contact person name</label>
+          <input type="text" id="biz-contact" placeholder="Jane Doe, Office Manager">
+        </div>
+        <div class="field">
+          <label for="biz-volume">Estimated monthly rides</label>
+          <select id="biz-volume">
+            <option value="1-5">1–5 rides / month</option>
+            <option value="6-15">6–15 rides / month</option>
+            <option value="16-30">16–30 rides / month</option>
+            <option value="30+">30+ rides / month</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="signup-email" id="signup-email-label">Email</label>
+        <input type="email" id="signup-email" placeholder="you@company.com">
+      </div>
+      <div class="field">
+        <label for="signup-phone">Phone</label>
+        <input type="tel" id="signup-phone" placeholder="(703) 345-8758">
+      </div>
+      <div class="field">
+        <label for="signup-password">Password</label>
+        <input type="password" id="signup-password" placeholder="At least 8 characters">
+      </div>
+      <div class="field">
+        <label for="signup-confirm">Confirm password</label>
+        <input type="password" id="signup-confirm" placeholder="Re-enter password">
+      </div>
+
+      <label class="checkbox-label" style="margin-top:2px; margin-bottom:14px;">
+        <input type="checkbox" id="agree-terms"> I agree to the Terms of Service and Privacy Policy
+      </label>
+
+      <div class="auth-error" id="signup-error"></div>
+      <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Create Account</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  const rates = {
+    dca:    { sedan:[65,85],  suv:[65,85] },
+    iad:    { sedan:[95,115], suv:[95,115] },
+    tysons: { sedan:[75,95],  suv:[75,95] },
+  };
+  const hourly = { sedan:[95,115], suv:[115,145] };
+  let tripType = 'p2p';
+
+  function setTripType(type){
+    tripType = type;
+    document.getElementById('tab-p2p').classList.toggle('active', type==='p2p');
+    document.getElementById('tab-hourly').classList.toggle('active', type==='hourly');
+    document.getElementById('route-field').style.display = type==='p2p' ? '' : 'none';
+    document.getElementById('hours-field').style.display = type==='hourly' ? '' : 'none';
+    updateEstimate();
+  }
+
+  function updateEstimate(){
+    const vehicle = document.getElementById('vehicle').value;
+    const out = document.getElementById('estimate-value');
+
+    if(tripType === 'p2p'){
+      const route = document.getElementById('route').value;
+      if(route === 'custom'){
+        out.textContent = 'Quoted individually';
+        return;
+      }
+      const [low, high] = rates[route][vehicle];
+      out.textContent = `$${low} – $${high}`;
+    } else {
+      const hrs = Math.max(2, parseInt(document.getElementById('hours').value) || 2);
+      const [low, high] = hourly[vehicle];
+      out.textContent = `$${low*hrs} – $${high*hrs}`;
+    }
+  }
+
+  function submitBooking(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const contact = document.getElementById('contact').value.trim();
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
+
+    if(!name || !contact || !date || !time){
+      alert('Please fill in your name, contact info, pickup date, and pickup time before sending.');
+      return;
+    }
+
+    const vehicle = document.getElementById('vehicle').value === 'sedan' ? 'Sedan (Cadillac XTS / Lincoln Continental)' : 'SUV (Chevrolet Suburban / Tahoe)';
+    const passengers = document.getElementById('passengers').value;
+    const notes = document.getElementById('notes').value.trim();
+    const estimate = document.getElementById('estimate-value').textContent;
+
+    let tripDetail = '';
+    if(tripType === 'p2p'){
+      const routeText = document.getElementById('route').selectedOptions[0].text;
+      tripDetail = `Trip type: Point-to-Point\nRoute: ${routeText}`;
+    } else {
+      const hrs = document.getElementById('hours').value;
+      tripDetail = `Trip type: Hourly As-Directed\nHours requested: ${hrs}`;
+    }
+
+    const body = [
+      `New ride request from the website:`, ``,
+      tripDetail,
+      `Vehicle: ${vehicle}`,
+      `Passengers: ${passengers}`,
+      `Pickup date: ${date}`,
+      `Pickup time: ${time}`,
+      `Estimated fare: ${estimate}`,
+      ``,
+      `Client name: ${name}`,
+      `Client contact: ${contact}`,
+      notes ? `Notes: ${notes}` : ''
+    ].filter(Boolean).join('\n');
+
+    const subject = encodeURIComponent(`Ride Request — ${name} — ${date}`);
+    const mailBody = encodeURIComponent(body);
+    window.location.href = `mailto:bookings@ivorylogisticsgroup.com?subject=${subject}&body=${mailBody}`;
+  }
+
+  updateEstimate();
+
+  // ---------- Auth (front-end demo — stores accounts in this browser only) ----------
+  // NOTE: This is a working UI for demonstration. Passwords here are NOT
+  // securely hashed and accounts do NOT sync across devices. Before going
+  // live, connect this to a real backend/auth provider (e.g. Supabase,
+  // Firebase Auth, or a custom API) and swap out the localStorage calls below.
+
+  let signupAccountType = 'individual';
+
+  function openAuthModal(tab){
+    document.getElementById('auth-overlay').classList.add('open');
+    switchAuthTab(tab || 'signin');
+  }
+  function closeAuthModal(){
+    document.getElementById('auth-overlay').classList.remove('open');
+  }
+  function closeAuthModalOutside(e){
+    if(e.target.id === 'auth-overlay') closeAuthModal();
+  }
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeAuthModal();
+  });
+
+  function switchAuthTab(tab){
+    document.getElementById('tab-signin').classList.toggle('active', tab === 'signin');
+    document.getElementById('tab-signup').classList.toggle('active', tab === 'signup');
+    document.getElementById('signin-form').style.display = tab === 'signin' ? '' : 'none';
+    document.getElementById('signup-form').style.display = tab === 'signup' ? '' : 'none';
+  }
+
+  function setAccountType(type){
+    signupAccountType = type;
+    document.getElementById('type-individual').classList.toggle('active', type === 'individual');
+    document.getElementById('type-business').classList.toggle('active', type === 'business');
+    document.getElementById('individual-fields').style.display = type === 'individual' ? '' : 'none';
+    document.getElementById('business-fields').style.display = type === 'business' ? '' : 'none';
+    document.getElementById('signup-email-label').textContent = type === 'business' ? 'Work email' : 'Email';
+  }
+
+  function handleSignUp(e){
+    e.preventDefault();
+    const errorEl = document.getElementById('signup-error');
+    errorEl.textContent = '';
+
+    const email = document.getElementById('signup-email').value.trim().toLowerCase();
+    const phone = document.getElementById('signup-phone').value.trim();
+    const password = document.getElementById('signup-password').value;
+    const confirm = document.getElementById('signup-confirm').value;
+    const agreed = document.getElementById('agree-terms').checked;
+
+    let displayName = '';
+    const accountData = { type: signupAccountType, email, phone };
+
+    if(signupAccountType === 'individual'){
+      const name = document.getElementById('ind-name').value.trim();
+      if(!name){ errorEl.textContent = 'Please enter your full name.'; return; }
+      displayName = name;
+      accountData.name = name;
+    } else {
+      const bizName = document.getElementById('biz-name').value.trim();
+      const contactName = document.getElementById('biz-contact').value.trim();
+      const volume = document.getElementById('biz-volume').value;
+      if(!bizName || !contactName){ errorEl.textContent = 'Please enter both the business name and a contact person.'; return; }
+      displayName = bizName;
+      accountData.businessName = bizName;
+      accountData.contactName = contactName;
+      accountData.monthlyVolume = volume;
+    }
+
+    if(!email || !password){ errorEl.textContent = 'Email and password are required.'; return; }
+    if(password.length < 8){ errorEl.textContent = 'Password must be at least 8 characters.'; return; }
+    if(password !== confirm){ errorEl.textContent = 'Passwords do not match.'; return; }
+    if(!agreed){ errorEl.textContent = 'Please agree to the Terms of Service to continue.'; return; }
+
+    try{
+      const accounts = JSON.parse(localStorage.getItem('ilg_accounts') || '{}');
+      if(accounts[email]){ errorEl.textContent = 'An account with this email already exists. Try signing in instead.'; return; }
+      accounts[email] = { ...accountData, password };
+      localStorage.setItem('ilg_accounts', JSON.stringify(accounts));
+      localStorage.setItem('ilg_session', JSON.stringify({ email, displayName, type: signupAccountType }));
+    }catch(err){
+      errorEl.textContent = 'Something went wrong saving your account. Please try again.';
+      return;
+    }
+
+    signIntoInterface(displayName, signupAccountType, email);
+    closeAuthModal();
+  }
+
+  function handleSignIn(e){
+    e.preventDefault();
+    const errorEl = document.getElementById('signin-error');
+    errorEl.textContent = '';
+
+    const email = document.getElementById('signin-email').value.trim().toLowerCase();
+    const password = document.getElementById('signin-password').value;
+
+    try{
+      const accounts = JSON.parse(localStorage.getItem('ilg_accounts') || '{}');
+      const account = accounts[email];
+      if(!account || account.password !== password){
+        errorEl.textContent = 'We could not find a matching account. Check your email and password, or create an account.';
+        return;
+      }
+      const displayName = account.type === 'business' ? account.businessName : account.name;
+      localStorage.setItem('ilg_session', JSON.stringify({ email, displayName, type: account.type }));
+      signIntoInterface(displayName, account.type, email);
+      closeAuthModal();
+    }catch(err){
+      errorEl.textContent = 'Something went wrong. Please try again.';
+    }
+  }
+
+  function signIntoInterface(displayName, type, email){
+    const badge = document.getElementById('account-badge');
+    document.getElementById('account-badge-name').textContent =
+      (type === 'business' ? '🏢 ' : '👤 ') + displayName;
+    badge.style.display = 'flex';
+    document.getElementById('signin-trigger').style.display = 'none';
+
+    const nameField = document.getElementById('name');
+    const contactField = document.getElementById('contact');
+    if(nameField) nameField.value = displayName;
+    if(contactField) contactField.value = email;
+  }
+
+  function signOut(){
+    localStorage.removeItem('ilg_session');
+    document.getElementById('account-badge').style.display = 'none';
+    document.getElementById('signin-trigger').style.display = '';
+  }
+
+  function forgotPassword(e){
+    e.preventDefault();
+    alert('Password recovery requires a connected backend/email service. For now, contact dispatch directly at bookings@ivorylogisticsgroup.com to reset your password.');
+  }
+
+  function checkAuthState(){
+    try{
+      const session = JSON.parse(localStorage.getItem('ilg_session') || 'null');
+      if(session){
+        signIntoInterface(session.displayName, session.type, session.email);
+      }
+    }catch(err){}
+  }
+  checkAuthState();
+</script>
+
+</body>
+</html>
