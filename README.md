@@ -1,2 +1,0 @@
-# ivorylogisticsgroup
-LLC Website
